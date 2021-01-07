@@ -1,5 +1,6 @@
 import React from 'react';
 import { getLatestTweets } from '../../api/tweets';
+import Layout from '../layout/Layout';
 import Tweet from './Tweet';
 
 class TweetsPage extends React.Component {
@@ -7,21 +8,29 @@ class TweetsPage extends React.Component {
 		tweets: null,
 	};
 
-	async componentDidMount() {
+	getTweets = async () => {
 		const tweets = await getLatestTweets();
 		this.setState({ tweets });
+	};
+
+	componentDidMount() {
+		this.getTweets();
 	}
 
-	render() {
+	renderContent = () => {
 		const { tweets } = this.state;
+
+		if (!tweets) {
+			return null;
+		}
+		return tweets.map((tweet) => <Tweet key={tweet.id} {...tweet} />);
+	};
+
+	render() {
 		return (
-			tweets && (
-				<ul>
-					{tweets.map((tweet) => (
-						<Tweet key={tweet.id} {...tweet} />
-					))}
-				</ul>
-			)
+			<Layout title="What's going on ...">
+				<div className="tweetsPage">{this.renderContent()}</div>
+			</Layout>
 		);
 	}
 }
