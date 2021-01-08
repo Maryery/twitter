@@ -1,4 +1,5 @@
 import React from 'react';
+import T from 'prop-types';
 import defaultPhoto from '../../assets/default_profile.png';
 import Photo from '../shared/Photo';
 import './Tweet.css';
@@ -25,5 +26,11 @@ const Tweet = ({ user, createdAt, content }) => (
 		</div>
 	</article>
 );
+
+Tweet.propTypes = {
+	user: T.shape({ name: T.string, username: T.string }).isRequired,
+	createAt: T.string.isRequired,
+	content: T.string,
+};
 
 export default Tweet;

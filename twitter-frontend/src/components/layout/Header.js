@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import { ReactComponent as Icon } from '../../assets/twitter.svg';
 import './Header.css';
 
