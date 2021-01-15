@@ -29,7 +29,7 @@ const Tweet = ({ user, createdAt, content }) => (
 
 Tweet.propTypes = {
 	user: T.shape({ name: T.string, username: T.string }).isRequired,
-	createAt: T.string.isRequired,
+	createdAt: T.string.isRequired,
 	content: T.string,
 };
 
