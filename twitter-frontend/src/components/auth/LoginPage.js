@@ -1,6 +1,7 @@
 import React from 'react';
 import T from 'prop-types';
 import Button from '../shared/Button';
+import FormField from '../shared/FormField';
 import './LoginPage.css';
 
 class LoginPage extends React.Component {
@@ -32,15 +33,19 @@ class LoginPage extends React.Component {
 			<div className="loginPage">
 				<h1 className="loginPage-title">Log in to Twitter</h1>
 				<form>
-					<input
+					<FormField
 						name="email"
 						type="text"
+						label="phone, email or username"
+						className="loginPage-field"
 						value={email}
 						onChange={this.handleChange}
 					/>
-					<input
+					<FormField
 						name="password"
 						type="password"
+						label="password"
+						className="loginPage-field"
 						value={password}
 						onChange={this.handleChange}
 					/>
